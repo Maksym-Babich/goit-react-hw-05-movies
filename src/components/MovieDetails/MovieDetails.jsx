@@ -33,7 +33,7 @@ export function MovieDetails() {
           </StyledLink>
         </AddInfoListItem>
         <AddInfoListItem>
-          <StyledLink to="/goit-react-hw-05-movies/movies/:movieId/cast">
+          <StyledLink to="/goit-react-hw-05-movies/movies/:movieId/reviews">
             Reviews
           </StyledLink>
         </AddInfoListItem>
