@@ -5,6 +5,8 @@ import {
   Nav,
   Span,
 } from 'components/SharedLayout/SharedLayout.styled';
+import { Suspense } from 'react';
+import { Grid } from 'react-loader-spinner';
 
 export function SharedLayout() {
   return (
@@ -19,7 +21,22 @@ export function SharedLayout() {
           </StyledLink>
         </Nav>
       </Header>
-      <Outlet />
+      <Suspense
+        fallback={
+          <Grid
+            height="80"
+            width="80"
+            color="#fff"
+            ariaLabel="grid-loading"
+            radius="12.5"
+            wrapperStyle={{ placeSelf: 'center' }}
+            wrapperClass=""
+            visible={true}
+          />
+        }
+      >
+        <Outlet />
+      </Suspense>
     </>
   );
 }

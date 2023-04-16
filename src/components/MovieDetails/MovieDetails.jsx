@@ -14,8 +14,10 @@ import {
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovie } from 'api';
 import { useEffect, useState, useRef } from 'react';
+import { Suspense } from 'react';
+import { Grid } from 'react-loader-spinner';
 
-export function MovieDetails() {
+export default function MovieDetails() {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
@@ -65,7 +67,22 @@ export function MovieDetails() {
           </StyledLink>
         </AddInfoListItem>
       </AddInfoList>
-      <Outlet />
+      <Suspense
+        fallback={
+          <Grid
+            height="80"
+            width="80"
+            color="#fff"
+            ariaLabel="grid-loading"
+            radius="12.5"
+            wrapperStyle={{ placeSelf: 'center' }}
+            wrapperClass=""
+            visible={true}
+          />
+        }
+      >
+        <Outlet />
+      </Suspense>
     </>
   );
 }

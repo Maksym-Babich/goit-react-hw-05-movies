@@ -10,7 +10,7 @@ import {
 } from 'components/Home/Home.styled';
 import { getTrending } from 'api';
 
-export function Home() {
+export default function Home() {
   const [trending, setTrending] = useState([]);
   const location = useLocation();
 

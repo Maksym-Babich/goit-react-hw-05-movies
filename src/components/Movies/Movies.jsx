@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react';
 import { searchMovies } from 'api';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
-export function Movies() {
+export default function Movies() {
   const [results, setResults] = useState([]);
   const location = useLocation();
   const [searchparams, setSearchParams] = useSearchParams();

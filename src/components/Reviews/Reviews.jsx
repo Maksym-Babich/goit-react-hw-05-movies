@@ -9,7 +9,7 @@ import { getMovieReviews } from 'api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export function Reviews() {
+export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 

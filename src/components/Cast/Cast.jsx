@@ -10,7 +10,7 @@ import { getMovieCast } from 'api';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-export function Cast() {
+export default function Cast() {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
 
