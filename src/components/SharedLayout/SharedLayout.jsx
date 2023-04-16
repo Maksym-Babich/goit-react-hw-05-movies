@@ -3,6 +3,7 @@ import {
   Header,
   StyledLink,
   Nav,
+  Span,
 } from 'components/SharedLayout/SharedLayout.styled';
 
 export function SharedLayout() {
@@ -10,8 +11,12 @@ export function SharedLayout() {
     <>
       <Header>
         <Nav>
-          <StyledLink to="/goit-react-hw-05-movies">Home</StyledLink>
-          <StyledLink to="/goit-react-hw-05-movies/movies">Movies</StyledLink>
+          <StyledLink to="/goit-react-hw-05-movies">
+            <Span>Home</Span>
+          </StyledLink>
+          <StyledLink to="/goit-react-hw-05-movies/movies">
+            <Span>Movies</Span>
+          </StyledLink>
         </Nav>
       </Header>
       <Outlet />

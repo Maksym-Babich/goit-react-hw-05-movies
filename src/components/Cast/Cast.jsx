@@ -4,6 +4,7 @@ import {
   Image,
   Name,
   Character,
+  ActorInfo,
 } from 'components/Cast/Cast.styled';
 import { getMovieCast } from 'api';
 import { useState, useEffect } from 'react';
@@ -29,11 +30,13 @@ export function Cast() {
               src={
                 actor.profile_path
                   ? `https://image.tmdb.org/t/p/original${actor.profile_path}`
-                  : null
+                  : 'https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png'
               }
             />
-            <Name>{actor.name}</Name>
-            <Character>{`Character: ${actor.character}`}</Character>
+            <ActorInfo>
+              <Name>{actor.name}</Name>
+              <Character>{`Character: ${actor.character}`}</Character>
+            </ActorInfo>
           </ListItem>
         );
       })}

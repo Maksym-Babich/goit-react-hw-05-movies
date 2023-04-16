@@ -9,6 +9,7 @@ import {
   AddInfo,
   AddInfoList,
   AddInfoListItem,
+  DescrWrapper,
 } from 'components/MovieDetails/MovieDetails.styled';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovie } from 'api';
@@ -36,18 +37,20 @@ export function MovieDetails() {
           src={
             movie['backdrop_path']
               ? `https://image.tmdb.org/t/p/original${movie['backdrop_path']}`
-              : null
+              : 'https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png'
           }
           alt={movie.title}
         />
-        <MovieTitle>{movie.title}</MovieTitle>
-        <Paragraph>{`User score: ${movie.vote_average}`}</Paragraph>
-        <Overwiev>Owerview</Overwiev>
-        <Paragraph>{movie.overview}</Paragraph>
-        <Genres>Genres</Genres>
-        <Paragraph>
-          {movie.genres?.map(genre => genre.name).join(', ')}
-        </Paragraph>
+        <DescrWrapper>
+          <MovieTitle>{movie.title}</MovieTitle>
+          <Paragraph>{`User score: ${movie.vote_average}`}</Paragraph>
+          <Overwiev>Owerview</Overwiev>
+          <Paragraph>{movie.overview}</Paragraph>
+          <Genres>Genres</Genres>
+          <Paragraph>
+            {movie.genres?.map(genre => genre.name).join(', ')}
+          </Paragraph>
+        </DescrWrapper>
       </Card>
       <AddInfo>Additional information</AddInfo>
       <AddInfoList>

@@ -5,6 +5,8 @@ import {
   List,
   ListItem,
   StyledLink,
+  Image,
+  Span,
 } from 'components/Movies/Movies.styled';
 import { useState, useEffect } from 'react';
 import { searchMovies } from 'api';
@@ -35,7 +37,7 @@ export function Movies() {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Input name="query" />
+        <Input name="query" autoComplete="off" />
         <Button type="submit">Search</Button>
       </Form>
       <List>
@@ -48,7 +50,15 @@ export function Movies() {
                     to={`/goit-react-hw-05-movies/movies/${movie.id}`}
                     state={{ from: location }}
                   >
-                    {movie.title}
+                    <Image
+                      alt={movie.title}
+                      src={
+                        movie.poster_path
+                          ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+                          : 'https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png'
+                      }
+                    />
+                    <Span>{movie.title}</Span>
                   </StyledLink>
                 </ListItem>
               );

@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Title, List, ListItem, StyledLink } from 'components/Home/Home.styled';
+import {
+  Title,
+  List,
+  ListItem,
+  StyledLink,
+  Image,
+  Span,
+} from 'components/Home/Home.styled';
 import { getTrending } from 'api';
 
 export function Home() {
@@ -24,7 +31,11 @@ export function Home() {
                 to={`/goit-react-hw-05-movies/movies/${movie.id}`}
                 state={{ from: location }}
               >
-                {movie.title}
+                <Image
+                  alt={movie.title}
+                  src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                />
+                <Span>{movie.title}</Span>
               </StyledLink>
             </ListItem>
           );
